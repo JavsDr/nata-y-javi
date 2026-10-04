@@ -3,7 +3,7 @@
    ========================================================= */
 const CONFIG = {
   // Fecha y hora (hora de Chile en diciembre = UTC-3)
-  inicio: "2026-12-05T17:00:00-03:00",
+  inicio: "2026-12-05T18:00:00-03:00",
   fin: "2026-12-06T03:00:00-03:00",
 
   // Lugar (si lo dejas vacío, se muestra "por confirmar")
