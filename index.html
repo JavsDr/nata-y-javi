@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nata & Javi · 5 de diciembre</title>
+  <meta name="description" content="¡Nos casamos! Nata & Javi, 5 de diciembre de 2026." />
+  <meta property="og:title" content="Nata & Javi · Save the date" />
+  <meta property="og:description" content="5 de diciembre de 2026. ¡Te esperamos!" />
+  <meta name="theme-color" content="#fbf8f6" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body class="is-locked">
+
+<!-- ================= SVG: flores del parte ================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="watercolor" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <radialGradient id="petalGrad" cx="0" cy="0" r="105" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b8327e"/>
+      <stop offset=".16" stop-color="#cf6fb4"/>
+      <stop offset=".42" stop-color="#d79ae6"/>
+      <stop offset=".8" stop-color="#e6bdf0"/>
+      <stop offset="1" stop-color="#f1dcf6"/>
+    </radialGradient>
+    <linearGradient id="leafGrad" x1="0" y1="0" x2="0" y2="-1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#7f9367"/>
+      <stop offset="1" stop-color="#c8d4b4"/>
+    </linearGradient>
+    <g id="petal">
+      <path d="M0,0 C-26,-14 -46,-58 -34,-88 C-28,-102 -16,-108 -8,-103 C-4,-110 4,-110 8,-103 C16,-108 28,-102 34,-88 C46,-58 26,-14 0,0Z" fill="url(#petalGrad)" opacity=".93"/>
+      <g stroke="#fff" stroke-width="1.1" stroke-dasharray="3 3" fill="none" opacity=".55">
+        <path d="M0,-6 L0,-98"/><path d="M-3,-10 C-14,-40 -20,-66 -22,-88"/><path d="M3,-10 C14,-40 20,-66 22,-88"/>
+      </g>
+    </g>
+    <g id="flower">
+      <g filter="url(#watercolor)">
+        <use href="#petal"/>
+        <use href="#petal" transform="rotate(72)"/>
+        <use href="#petal" transform="rotate(144)"/>
+        <use href="#petal" transform="rotate(216)"/>
+        <use href="#petal" transform="rotate(288)"/>
+      </g>
+      <g stroke="#c2185b" stroke-width="1.2" opacity=".8">
+        <path d="M0,0 L-14,-20 M0,0 L16,-18 M0,0 L22,6 M0,0 L-20,10 M0,0 L2,24 M0,0 L-24,-4 M0,0 L10,-24"/>
+      </g>
+      <circle r="9" fill="#f4d9a8"/>
+      <circle r="5" fill="#e7b75a"/>
+      <circle r="2" fill="#c2185b"/>
+    </g>
+    <path id="leaf" d="M0,0 C14,-12 16,-40 0,-58 C-16,-40 -14,-12 0,0Z" fill="url(#leafGrad)"/>
+    <g id="bud"><ellipse rx="5" ry="8" fill="#a07fcf"/><ellipse rx="3" ry="5" cy="-2" fill="#c9a6e6"/></g>
+    <!-- ramillete de esquina (como el parte) -->
+    <g id="bouquet">
+      <g fill="none" stroke="#8fa07a" stroke-width="2" stroke-linecap="round">
+        <path d="M250,180 C200,150 150,120 90,110"/>
+        <path d="M250,180 C230,120 215,70 205,10"/>
+        <path d="M250,180 C255,250 250,300 240,380"/>
+        <path d="M160,128 C140,90 110,70 70,62"/>
+        <path d="M245,300 C210,320 190,350 185,390"/>
+        <path d="M120,114 C95,135 70,150 40,152"/>
+      </g>
+      <g filter="url(#watercolor)">
+        <use href="#leaf" transform="translate(150,124) rotate(-120) scale(.9)"/>
+        <use href="#leaf" transform="translate(185,140) rotate(-30) scale(.8)"/>
+        <use href="#leaf" transform="translate(115,113) rotate(-60) scale(.7)"/>
+        <use href="#leaf" transform="translate(222,90) rotate(-80) scale(.8)"/>
+        <use href="#leaf" transform="translate(212,50) rotate(30) scale(.7)"/>
+        <use href="#leaf" transform="translate(250,260) rotate(60) scale(.9)"/>
+        <use href="#leaf" transform="translate(248,230) rotate(-110) scale(.8)"/>
+        <use href="#leaf" transform="translate(244,330) rotate(50) scale(.75)"/>
+        <use href="#leaf" transform="translate(205,330) rotate(-140) scale(.7)"/>
+        <use href="#leaf" transform="translate(190,365) rotate(40) scale(.6)"/>
+        <use href="#leaf" transform="translate(75,63) rotate(-100) scale(.55)"/>
+      </g>
+      <g>
+        <use href="#bud" transform="translate(90,108) rotate(-70)"/>
+        <use href="#bud" transform="translate(80,96) rotate(-40) scale(.8)"/>
+        <use href="#bud" transform="translate(70,60) rotate(-80) scale(.9)"/>
+        <use href="#bud" transform="translate(58,70) rotate(-60) scale(.7)"/>
+        <use href="#bud" transform="translate(40,150) rotate(-100) scale(.8)"/>
+        <use href="#bud" transform="translate(205,10) scale(.9)"/>
+        <use href="#bud" transform="translate(196,24) rotate(-20) scale(.7)"/>
+        <use href="#bud" transform="translate(240,380) rotate(180) scale(.9)"/>
+        <use href="#bud" transform="translate(252,368) rotate(160) scale(.7)"/>
+        <use href="#bud" transform="translate(185,390) rotate(190) scale(.8)"/>
+      </g>
+      <use href="#flower" transform="translate(250,180) rotate(14) scale(1.05)"/>
+    </g>
+  </defs>
+</svg>
+
+<!-- ================= INTRO: el sobre ================= -->
+<section id="intro" class="intro" aria-label="Abrir la invitación">
+  <div class="intro-petals" aria-hidden="true"></div>
+  <div class="envelope" id="envelope">
+    <div class="env-back"></div>
+    <div class="env-card">
+      <svg class="corner tr" viewBox="0 0 300 400"><use href="#bouquet"/></svg>
+      <p class="caps">Save the date</p>
+      <p class="mini-names">Nata <span>&amp;</span> Javi</p>
+      <p class="caps small">5 · 12 · 2026</p>
+    </div>
+    <div class="env-front"></div>
+    <div class="env-flap"></div>
+    <button class="seal" id="seal" type="button" aria-label="Abrir invitación">
+      <span>N<i>&amp;</i>J</span>
+    </button>
+  </div>
+  <form class="unlock" id="unlock" autocomplete="off">
+    <label for="pw">Escribe la clave de tu invitación</label>
+    <div class="unlock-row">
+      <input id="pw" type="password" placeholder="Clave" autocapitalize="off" spellcheck="false" required>
+      <button class="btn primary" type="submit">Abrir</button>
+    </div>
+    <p class="unlock-msg" id="unlockMsg" role="alert" aria-live="polite"></p>
+  </form>
+  <p class="intro-hint" id="introHint" hidden>Toca el sello para abrir ✨</p>
+</section>
+
+<!-- ================= NAV ================= -->
+<nav class="nav" id="nav" aria-label="Secciones">
+  <a href="#inicio">Inicio</a>
+  <a href="#nosotros">Nosotros</a>
+  <a href="#coordenadas">Coordenadas</a>
+  <a href="#programa">Programa</a>
+  <a href="#juego">Juego</a>
+  <a href="#rsvp" class="nav-cta">Confirmar</a>
+  <a href="#regalos">Regalos</a>
+</nav>
+
+<main id="main">
+
+  <!-- ================= HERO = el parte ================= -->
+  <section class="hero" id="inicio">
+    <div class="parte">
+      <span class="frame"></span>
+      <svg class="corner tr sway" viewBox="0 0 300 400" aria-hidden="true"><use href="#bouquet"/></svg>
+      <svg class="corner bl sway-2" viewBox="0 0 300 400" aria-hidden="true"><use href="#bouquet"/></svg>
+      <div class="parte-text">
+        <p class="caps reveal">Save the date</p>
+        <span class="rule"></span>
+        <h1 class="names">
+          <span class="n1">Nata</span>
+          <button class="amp" id="amp" type="button" aria-label="Sorpresa">&amp;</button>
+          <span class="n2">Javi</span>
+        </h1>
+        <span class="rule"></span>
+        <p class="caps date">5 de diciembre de 2026</p>
+      </div>
+    </div>
+
+    <div class="countdown" id="countdown" aria-live="polite">
+      <div><b id="cd-d">--</b><span>días</span></div>
+      <div><b id="cd-h">--</b><span>horas</span></div>
+      <div><b id="cd-m">--</b><span>min</span></div>
+      <div><b id="cd-s">--</b><span>seg</span></div>
+    </div>
+    <p class="countdown-note" id="countdownNote">para el bailoteo 💃🕺</p>
+
+    <div class="hero-actions">
+      <a class="btn primary" href="#rsvp">Confirmar asistencia</a>
+      <a class="btn" href="#coordenadas">¿Dónde y cuándo?</a>
+    </div>
+    <a class="scroll-hint" href="#nosotros" aria-label="Seguir bajando">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- ================= NOSOTROS ================= -->
+  <section class="section" id="nosotros">
+    <div class="heading">
+      <p class="caps">Nos casamos</p>
+      <h2>…y queremos que estés ahí</h2>
+      <p class="lead">Después de muchos cerros, lluvias, ciudades, tortas de cumpleaños y selfies con mal ángulo, decidimos hacerlo oficial. Te invitamos a celebrar con nosotros una noche de pisco sour, cordero al palo y mucho baile.</p>
+    </div>
+
+    <div class="polaroid-table" id="polaroids" aria-label="Fotos para arrastrar">
+      <!-- generado en script.js -->
+    </div>
+    <p class="hint">👆 Arrastra las fotos, tócalas para verlas en grande, o <button class="link-btn" id="shuffle" type="button">revuélvelas</button></p>
+  </section>
+
+  <!-- ================= COORDENADAS ================= -->
+  <section class="section tinted" id="coordenadas">
+    <div class="heading">
+      <p class="caps">Coordenadas</p>
+      <h2>Anota esto en todas partes</h2>
+    </div>
+
+    <div class="cards">
+      <article class="card flip" tabindex="0">
+        <div class="flip-inner">
+          <div class="face">
+            <span class="ico">📅</span>
+            <span class="label">Fecha</span>
+            <strong>Sábado 5 de diciembre, 2026</strong>
+            <small>tócame</small>
+          </div>
+          <div class="face back">
+            <p>Sí, es sábado. Sí, el domingo puedes dormir. De nada. 😴</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card flip" tabindex="0">
+        <div class="flip-inner">
+          <div class="face">
+            <span class="ico">🕕</span>
+            <span class="label">Hora</span>
+            <strong>18:00 hrs</strong>
+            <small>tócame</small>
+          </div>
+          <div class="face back">
+            <p>Llega a la hora: el primer pisco sour se sirve con limones de la casa y vuelan. 🍋</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card flip" tabindex="0">
+        <div class="flip-inner">
+          <div class="face">
+            <span class="ico">📍</span>
+            <span class="label">Lugar</span>
+            <strong data-cfg="lugar">Lugar por confirmar</strong>
+            <small data-cfg="direccion">Te mandamos la dirección pronto</small>
+          </div>
+          <div class="face back">
+            <p>Sí: es en una casa con limonero, pasto y pista de baile. Más íntimo, imposible. 🏡</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card flip" tabindex="0">
+        <div class="flip-inner">
+          <div class="face">
+            <span class="ico">👗</span>
+            <span class="label">Qué ponerse</span>
+            <strong>Elegante sport</strong>
+            <small>tócame</small>
+          </div>
+          <div class="face back">
+            <p>Diciembre + pasto = cuidado con los tacos aguja. Zapatos que aguanten bailar hasta tarde. 👟</p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="cal-actions">
+      <a class="btn primary" id="gcal" target="_blank" rel="noopener">Agregar a Google Calendar</a>
+      <button class="btn" id="ics" type="button">Descargar para iPhone / Outlook</button>
+      <a class="btn" id="maps" target="_blank" rel="noopener">Abrir en Google Maps</a>
+    </div>
+  </section>
+
+  <!-- ================= PROGRAMA ================= -->
+  <section class="section" id="programa">
+    <div class="heading">
+      <p class="caps">El programa</p>
+      <h2>Cómo va a estar la noche</h2>
+    </div>
+
+    <ol class="timeline" id="timeline">
+      <li>
+        <time>18:00</time>
+        <div class="tl-dot">🍋</div>
+        <div class="tl-body">
+          <h3>Llegada y pisco sour</h3>
+          <p>Pisco sour hecho con los limones de la casa, picoteo y música en vivo.</p>
+        </div>
+      </li>
+      <li>
+        <time>19:00</time>
+        <div class="tl-dot">💍</div>
+        <div class="tl-body">
+          <h3>Ceremonia: ¡nos auto casamos!</h3>
+          <p>Sin intermediarios: nosotros mismos, nuestras palabras y ustedes de testigos.</p>
+        </div>
+      </li>
+      <li>
+        <time>19:30</time>
+        <div class="tl-dot">👧</div>
+        <div class="tl-body">
+          <h3>Entran las niñas con los anillos</h3>
+          <p>El momento más tierno (y más impredecible) de la noche.</p>
+        </div>
+      </li>
+      <li>
+        <time>19:45</time>
+        <div class="tl-dot">📸</div>
+        <div class="tl-body">
+          <h3>Fotos familiares</h3>
+          <p>Sonrisa, que ésta va al living de la abuela.</p>
+        </div>
+      </li>
+      <li>
+        <time>20:00</time>
+        <div class="tl-dot">🪩</div>
+        <div class="tl-body">
+          <h3>Empieza el bailoteo</h3>
+          <p>Cordero al palo, barra de cocktails, la torta de Daniela y pista hasta que el cuerpo aguante.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="menu">
+      <div class="menu-item"><span>🍋</span><b>Pisco sour</b><small>con limones de la casa</small></div>
+      <div class="menu-item"><span>🔥</span><b>Cordero al palo</b><small>como manda la tradición</small></div>
+      <div class="menu-item"><span>🍸</span><b>Barra de cocktails</b><small>con moderación (o no)</small></div>
+      <div class="menu-item"><span>🎂</span><b>La torta de Daniela</b><small>ya es leyenda</small></div>
+    </div>
+  </section>
+
+  <!-- ================= JUEGO: MEMORICE ================= -->
+  <section class="section tinted" id="juego">
+    <div class="heading">
+      <p class="caps">Mientras esperas</p>
+      <h2>El memorice de Nata &amp; Javi</h2>
+      <p class="lead">Encuentra los pares lo más rápido que puedas. Si bajas de 30 movimientos, te ganaste el primer pisco sour (palabra de novios).</p>
+    </div>
+
+    <div class="game-bar">
+      <span>Movimientos: <b id="moves">0</b></span>
+      <span>Tiempo: <b id="time">0:00</b></span>
+      <span>Récord: <b id="best">—</b></span>
+      <button class="btn small" id="restart" type="button">Reiniciar</button>
+    </div>
+    <div class="memory" id="memory" aria-label="Juego de memoria"></div>
+    <p class="game-win" id="gameWin" hidden></p>
+  </section>
+
+  <!-- ================= RSVP ================= -->
+  <section class="section" id="rsvp">
+    <div class="heading">
+      <p class="caps">RSVP</p>
+      <h2>¿Vienes?</h2>
+      <p class="lead">Confírmanos lo antes posible para dejar todo listo y tirar la casa por la ventana (literalmente: es en una casa).</p>
+    </div>
+
+    <form class="rsvp" id="rsvpForm" novalidate>
+      <div class="choice" role="radiogroup" aria-label="¿Vienes?">
+        <label class="pill"><input type="radio" name="va" value="si" checked><span>🎉 ¡Obvio que voy!</span></label>
+        <label class="pill"><input type="radio" name="va" value="no"><span>😢 No puedo</span></label>
+      </div>
+
+      <label>Nombre(s)
+        <input name="nombre" type="text" placeholder="Ej: Paola y Jorge" required>
+      </label>
+
+      <div class="row going-only">
+        <label>Adultos
+          <div class="stepper"><button type="button" data-step="-1">−</button><input name="adultos" type="number" min="0" max="10" value="1"><button type="button" data-step="1">+</button></div>
+        </label>
+        <label>Niños
+          <div class="stepper"><button type="button" data-step="-1">−</button><input name="ninos" type="number" min="0" max="10" value="0"><button type="button" data-step="1">+</button></div>
+        </label>
+      </div>
+
+      <label class="going-only">¿Alguna restricción alimentaria?
+        <input name="comida" type="text" placeholder="Vegetariano, celíaco, alérgico al cilantro…">
+      </label>
+
+      <label class="going-only">La canción que te va a sacar a la pista 🎶
+        <input name="cancion" type="text" placeholder="Ej: Tusa, Mamma Mia, La Bamba…">
+      </label>
+
+      <label>Un mensajito para los novios
+        <textarea name="mensaje" rows="3" placeholder="Consejos matrimoniales bienvenidos 😅"></textarea>
+      </label>
+
+      <button class="btn primary big" type="submit">Enviar confirmación por WhatsApp</button>
+      <p class="form-note">Se abre WhatsApp con tu respuesta lista: solo tienes que apretar enviar.</p>
+    </form>
+  </section>
+
+  <!-- ================= REGALOS ================= -->
+  <section class="section tinted" id="regalos">
+    <div class="heading">
+      <p class="caps">Regalos</p>
+      <h2>Tu presencia es el mejor regalo</h2>
+      <p class="lead">Pero si igual quieres regalarnos algo, nos encantan las aventuras (mira las fotos 😅). Arma tu regalo con experiencias para nuestra luna de miel:</p>
+    </div>
+
+    <div class="gifts" id="gifts"></div>
+
+    <div class="gift-total">
+      <div><span>Tu regalo</span><strong id="giftTotal">$0</strong></div>
+      <button class="btn primary" id="giftSend" type="button" disabled>Avisarles por WhatsApp</button>
+    </div>
+
+    <div class="bank">
+      <h3>Datos para transferir</h3>
+      <dl id="bankData"></dl>
+      <button class="btn small" id="copyBank" type="button">Copiar datos</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <svg class="corner footer-flower" viewBox="0 0 300 400" aria-hidden="true"><use href="#bouquet"/></svg>
+  <p class="names small">Nata <span>&amp;</span> Javi</p>
+  <p class="caps">Con amor · 5 · 12 · 2026</p>
+  <button class="link-btn" id="replay" type="button">Volver a abrir el sobre ✉️</button>
+</footer>
+
+<!-- lightbox -->
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" type="button" aria-label="Cerrar">×</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+</body>
+</html>
