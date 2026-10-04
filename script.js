@@ -3,12 +3,12 @@
    ========================================================= */
 const CONFIG = {
   // Fecha y hora (hora de Chile en diciembre = UTC-3)
-  inicio: "2026-12-05T18:00:00-03:00",
+  inicio: "2026-12-05T17:00:00-03:00",
   fin: "2026-12-06T03:00:00-03:00",
 
   // Lugar (si lo dejas vacío, se muestra "por confirmar")
-  lugar: "",              // ej: "Casa de los Droguett"
-  direccion: "",          // ej: "Camino Los Limones 123, Pirque"
+  lugar: "El Tranque 174",
+  direccion: "Chicureo, Colina",
 
   // WhatsApp que recibe las confirmaciones (formato internacional, sin + ni espacios)
   whatsapp: "56900000000",
