@@ -498,3 +498,6 @@ body.ready .names .n2 { animation: rise 1s .6s forwards; }
 .hero-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--lilac-3); opacity: 0; transition: opacity 1s; }
 .hero-photo img.loaded { opacity: 1; }
 .hero-photo figcaption { font-family: var(--serif); font-style: italic; color: var(--ink); text-align: center; font-size: 1.2rem; padding: 10px 4px 14px; }
+
+.gift-name { flex: 1; min-width: 140px; max-width: 260px; font: inherit; border: 0; border-radius: 999px; padding: 10px 16px; outline: none; }
+.gift-name.invalid { animation: shake .4s; box-shadow: 0 0 0 3px #d0577f; }

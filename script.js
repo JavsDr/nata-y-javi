@@ -13,6 +13,9 @@ const CONFIG = {
   // WhatsApp que recibe las confirmaciones (formato internacional, sin + ni espacios)
   whatsapp: "56956220216",
 
+  // URL de la "Aplicación web" de Google Apps Script (ver apps-script.gs). Vacío = no guarda.
+  sheetUrl: "",
+
   // Datos de transferencia: van cifrados (private/bank.json → img/bank.bin, ver encrypt.py)
 
   // Regalos (precios en CLP)
@@ -75,6 +78,16 @@ function party(opts = {}) {
   if (!window.confetti || reduced) return;
   const colors = ["#b98bd0", "#d8b8e8", "#efe2f5", "#8fa07a", "#b8327e", "#ffffff"];
   confetti({ particleCount: 120, spread: 80, origin: { y: .7 }, colors, ...opts });
+}
+
+/* ---------- guardar en Google Sheet ---------- */
+function guardar(data) {
+  if (!CONFIG.sheetUrl) return;
+  fetch(CONFIG.sheetUrl, {
+    method: "POST", mode: "no-cors", keepalive: true,
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(data),
+  }).catch(() => {});
 }
 
 /* ---------- pétalos ---------- */
@@ -488,6 +501,12 @@ function setupRsvp() {
       form.mensaje.value.trim() && `💌 ${form.mensaje.value.trim()}`,
     ];
     const text = lines.filter(Boolean).join("\n");
+    guardar({
+      tipo: "rsvp", nombre, va,
+      adultos: va ? +form.adultos.value : 0, ninos: va ? +form.ninos.value : 0,
+      comida: va ? form.comida.value.trim() : "", cancion: va ? form.cancion.value.trim() : "",
+      mensaje: form.mensaje.value.trim(),
+    });
     if (va) party({ particleCount: 220, spread: 120 });
     toast(va ? "¡Qué alegría! Abriendo WhatsApp…" : "Te vamos a extrañar 💜");
     setTimeout(() => open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`, "_blank"), 700);
@@ -539,7 +558,11 @@ function setupGifts() {
   $("#giftSend").addEventListener("click", () => {
     const items = CONFIG.regalos.map((g, i) => qty[i] ? `• ${g.ico} ${g.t} x${qty[i]}` : null).filter(Boolean);
     if (libre) items.push(`• 💌 Aporte libre ${clp(libre)}`);
-    const text = `🎁 *Regalo para Nata & Javi*\n${items.join("\n")}\nTotal: ${clp(update())}\n\n(¡Ya les transfiero!)`;
+    const nameEl = $("#giftName"), nombre = nameEl.value.trim();
+    if (!nombre) { nameEl.classList.remove("invalid"); void nameEl.offsetWidth; nameEl.classList.add("invalid"); nameEl.focus(); toast("Cuéntanos quién eres 😊"); return; }
+    const total = update();
+    const text = `🎁 *Regalo para Nata & Javi*\nDe: ${nombre}\n${items.join("\n")}\nTotal: ${clp(total)}\n\n(¡Ya les transfiero!)`;
+    guardar({ tipo: "regalo", nombre, regalos: items.join("\n").replace(/• /g, ""), total, mensaje: "" });
     party({ particleCount: 120 });
     open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`, "_blank");
   });
