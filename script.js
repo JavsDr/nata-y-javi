@@ -24,12 +24,15 @@ const CONFIG = {
 
   // Regalos (precios en CLP)
   regalos: [
-    { ico: "🛖", t: "Noche de cabaña con tinaja", d: "Para descansar después de tanto bailoteo.", p: 120000 },
-    { ico: "🥾", t: "Trekking con guía", d: "Otro cerro más para la colección de selfies.", p: 60000 },
-    { ico: "🍷", t: "Cena romántica (sin niñas)", d: "Una noche de conversación sin interrupciones. Una.", p: 70000 },
-    { ico: "🛶", t: "Kayak al atardecer", d: "Prometemos no darnos vuelta. Mucho.", p: 50000 },
-    { ico: "⛽", t: "Bencina para el road trip", d: "Kilómetros de playlist y paisajes.", p: 40000 },
-    { ico: "☕", t: "Desayuno en la cama", d: "Con jugo natural y cero alarmas.", p: 25000 },
+    { ico: "🛠️", t: "Un taller para Nata", d: "Su propio espacio para crear lo que se le ocurra.", p: 300000 },
+    { ico: "🏄", t: "Una tabla de surf", d: "Olas, allá vamos.", p: 350000 },
+    { ico: "⛷️", t: "Una semana esquiando en familia", d: "Las niñas en la escuelita, nosotros en la pista.", p: 900000 },
+    { ico: "🧘", t: "Pasajes a Mind & Life", d: "Para seguir explorando la mente (y el mundo).", p: 1200000 },
+    { ico: "👨‍🌾", t: "Jardinero por un año", d: "El limonero del pisco sour lo agradece.", p: 2400000 },
+    { ico: "😅", t: "…o jardinero por un mes", d: "Igual sirve. Igual lo agradecemos.", p: 200000 },
+    { ico: "🏊", t: "Piscina limpia todo el verano", d: "Cero hojas, cero bichos, puro chapuzón.", p: 400000 },
+    { ico: "🌸", t: "Plantas nuevas para el jardín", d: "Más flores lilas, como las del parte.", p: 80000 },
+    { ico: "🏔️", t: "Un metro del Everest", d: "Faltan 8.849. Si juntamos todos, llegamos a la cumbre.", p: 10000 },
     { ico: "🍦", t: "Helados para las niñas", d: "Soborno oficial para que entren bien con los anillos.", p: 10000 },
     { ico: "💌", t: "Aporte libre", d: "Tú eliges el monto.", p: 0, libre: true },
   ],
