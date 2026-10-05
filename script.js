@@ -11,7 +11,7 @@ const CONFIG = {
   direccion: "Chicureo, Colina",
 
   // WhatsApp que recibe las confirmaciones (formato internacional, sin + ni espacios)
-  whatsapp: "56900000000",
+  whatsapp: "56956220216",
 
   // Datos de transferencia: van cifrados (private/bank.json → img/bank.bin, ver encrypt.py)
 
