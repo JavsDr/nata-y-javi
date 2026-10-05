@@ -14,7 +14,7 @@ const CONFIG = {
   whatsapp: "56956220216",
 
   // URL de la "Aplicación web" de Google Apps Script (ver apps-script.gs). Vacío = no guarda.
-  sheetUrl: "",
+  sheetUrl: "https://script.google.com/macros/s/AKfycbxR1iTua8_md_1aJ_p7srTV4ks0eVCy3hmh6ipl9q7EkeqisvcCmL9k3ZhiPQnFJvk-Ww/exec",
 
   // Datos de transferencia: van cifrados (private/bank.json → img/bank.bin, ver encrypt.py)
 
