@@ -39,7 +39,12 @@ const CONFIG = {
 };
 
 /* Fotos: archivo + texto de la polaroid */
+const HERO = "f20.jpg";
 const FOTOS = [
+  ["f22.jpg", "Huellas al atardecer"],
+  ["f21.jpg", "Cordillera de la mano"],
+  ["f19.jpg", "Castillo de noche"],
+  ["f18.jpg", "Abrazos entre árboles gigantes"],
   ["f13.jpg", "Cumbre conquistada"],
   ["f09.jpg", "Llueve, pero igual sonreímos"],
   ["f11.jpg", "Ese árbol era GIGANTE"],
@@ -53,7 +58,7 @@ const FOTOS = [
   ["f17.jpg", "Domingo perfecto"],
   ["f10.jpg", "Bosque y neblina"],
 ];
-const MEMORICE = ["f02.jpg", "f03.jpg", "f04.jpg", "f08.jpg", "f10.jpg", "f12.jpg", "f14.jpg", "f17.jpg"];
+const MEMORICE = ["f02.jpg", "f21.jpg", "f22.jpg", "f08.jpg", "f19.jpg", "f12.jpg", "f14.jpg", "f17.jpg"];
 
 /* ========================================================= */
 const $ = (s, el = document) => el.querySelector(s);
@@ -137,7 +142,7 @@ async function unlock(pw) {
   let ok = false;
   try { ok = new TextDecoder().decode(await decryptFile(key, "img/check.bin")) === "nata&javi"; } catch {}
   if (!ok) return false;
-  const names = [...new Set([...FOTOS.map(f => f[0]), ...MEMORICE])].map(f => f.replace(/\.\w+$/, ""));
+  const names = [...new Set([HERO, ...FOTOS.map(f => f[0]), ...MEMORICE])].map(f => f.replace(/\.\w+$/, ""));
   await Promise.all(names.map(async n => {
     URLS[n] = URL.createObjectURL(new Blob([await decryptFile(key, `img/${n}.bin`)], { type: "image/jpeg" }));
   }));
@@ -168,7 +173,13 @@ function setupIntro() {
     unlocked = true;
     store.set("nj-pw", pw);
     form.hidden = true; hint.hidden = false;
-    if (!contentReady) { contentReady = true; setupPolaroids(); setupMemory(); }
+    if (!contentReady) {
+      contentReady = true;
+      const hero = $("#heroImg");
+      hero.onload = () => hero.classList.add("loaded");
+      hero.src = photo(HERO);
+      setupPolaroids(); setupMemory();
+    }
   };
 
   const tryPw = async (pw, auto) => {
