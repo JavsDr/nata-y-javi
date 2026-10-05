@@ -27,5 +27,7 @@ for f in sorted(glob.glob("private/plain/*.jpg")):
     name = os.path.splitext(os.path.basename(f))[0]
     open(f"img/{name}.bin", "wb").write(enc(key, open(f, "rb").read()))
 open("img/check.bin", "wb").write(enc(key, b"nata&javi"))
+if os.path.exists("private/bank.json"):
+    open("img/bank.bin", "wb").write(enc(key, open("private/bank.json", "rb").read()))
 json.dump({"salt": salt.hex(), "iter": ITER}, open("secure.json", "w"))
 print("ok:", len(glob.glob("img/*.bin")), "archivos cifrados")

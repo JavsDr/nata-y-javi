@@ -13,14 +13,7 @@ const CONFIG = {
   // WhatsApp que recibe las confirmaciones (formato internacional, sin + ni espacios)
   whatsapp: "56900000000",
 
-  // Datos de transferencia
-  banco: [
-    ["Nombre", "Por completar"],
-    ["RUT", "Por completar"],
-    ["Banco", "Por completar"],
-    ["Cuenta", "Por completar"],
-    ["Mail", "Por completar"],
-  ],
+  // Datos de transferencia: van cifrados (private/bank.json → img/bank.bin, ver encrypt.py)
 
   // Regalos (precios en CLP)
   regalos: [
@@ -123,6 +116,7 @@ function burst(x, y, n = 10) {
 
 /* ---------- clave: las fotos están cifradas (AES-CBC + PBKDF2) ---------- */
 const URLS = {};
+let BANCO = [];
 const photo = src => URLS[src.replace(/\.\w+$/, "")] || "";
 const normPw = p => p.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "");
 const hex = h => new Uint8Array(h.match(/../g).map(b => parseInt(b, 16)));
@@ -146,6 +140,7 @@ async function unlock(pw) {
   await Promise.all(names.map(async n => {
     URLS[n] = URL.createObjectURL(new Blob([await decryptFile(key, `img/${n}.bin`)], { type: "image/jpeg" }));
   }));
+  try { BANCO = JSON.parse(new TextDecoder().decode(await decryptFile(key, "img/bank.bin"))); } catch {}
   return true;
 }
 
@@ -178,7 +173,7 @@ function setupIntro() {
       const hero = $("#heroImg");
       hero.onload = () => hero.classList.add("loaded");
       hero.src = photo(HERO);
-      setupPolaroids(); setupMemory();
+      setupPolaroids(); setupMemory(); renderBank();
     }
   };
 
@@ -549,13 +544,15 @@ function setupGifts() {
     open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`, "_blank");
   });
 
-  const dl = $("#bankData");
-  dl.innerHTML = CONFIG.banco.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
   $("#copyBank").addEventListener("click", async () => {
-    const txt = CONFIG.banco.map(([k, v]) => `${k}: ${v}`).join("\n");
+    const txt = BANCO.map(([k, v]) => `${k}: ${v}`).join("\n");
     try { await navigator.clipboard.writeText(txt); toast("📋 Datos copiados"); }
     catch { toast("No se pudo copiar, cópialos a mano 🙏"); }
   });
+}
+
+function renderBank() {
+  $("#bankData").innerHTML = BANCO.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
 }
 
 /* ---------- pétalos al tocar ---------- */
