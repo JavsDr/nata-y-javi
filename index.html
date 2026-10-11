@@ -12,9 +12,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="stylesheet" href="styles.css?v=11" />
   <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-  <script defer src="script.js?v=10"></script>
+  <script defer src="script.js?v=11"></script>
 </head>
 <body class="is-locked">
 
@@ -105,10 +105,7 @@
   <div class="envelope" id="envelope">
     <div class="env-back"></div>
     <div class="env-card">
-      <svg class="corner tr" viewBox="0 0 300 400"><use href="#bouquet"/></svg>
-      <p class="caps">Save the date</p>
-      <p class="mini-names">Nata <span>&amp;</span> Javi</p>
-      <p class="caps small">5 · 12 · 2026</p>
+      <img src="parte.jpg?v=1" alt="">
     </div>
     <div class="env-front"></div>
     <div class="env-flap"></div>
@@ -143,21 +140,11 @@
   <!-- ================= HERO = el parte ================= -->
   <section class="hero" id="inicio">
     <div class="hero-grid">
+    <div class="parte-wrap">
     <div class="parte">
-      <span class="frame"></span>
-      <svg class="corner tr sway" viewBox="0 0 300 400" aria-hidden="true"><use href="#bouquet"/></svg>
-      <svg class="corner bl sway-2" viewBox="0 0 300 400" aria-hidden="true"><use href="#bouquet"/></svg>
-      <div class="parte-text">
-        <p class="caps reveal">Save the date</p>
-        <span class="rule"></span>
-        <h1 class="names">
-          <span class="n1">Nata</span>
-          <button class="amp" id="amp" type="button" aria-label="Sorpresa">&amp;</button>
-          <span class="n2">Javi</span>
-        </h1>
-        <span class="rule"></span>
-        <p class="caps date">5 de diciembre de 2026</p>
-      </div>
+      <img class="parte-img" src="parte.jpg?v=1" alt="Invitación al matrimonio de Nata y Javi">
+      <h1 class="sr-only">Nata &amp; Javi</h1>
+    </div>
     </div>
       <figure class="hero-photo">
         <img id="heroImg" alt="Nata y Javi con impermeables en el bosque del sur">
@@ -250,7 +237,7 @@
           <div class="face">
             <span class="ico">👗</span>
             <span class="label">Qué ponerse</span>
-            <strong>Elegante sport</strong>
+            <strong>Dressy Casual</strong>
             <small>tócame</small>
           </div>
           <div class="face back">
