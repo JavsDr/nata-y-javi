@@ -35,14 +35,14 @@ const CONFIG = {
 };
 
 /* Fotos: archivo + texto de la polaroid */
-const HERO = "f20.jpg";
+const HERO = "f09.jpg";
 const FOTOS = [
   ["f22.jpg", "Huellas al atardecer"],
   ["f21.jpg", "Cordillera de la mano"],
   ["f19.jpg", "Castillo de noche"],
   ["f18.jpg", "Abrazos entre árboles gigantes"],
   ["f13.jpg", "Cumbre conquistada"],
-  ["f09.jpg", "Llueve, pero igual sonreímos"],
+  ["f20.jpg", "Nata, Javi y las niñas en la tinaja"],
   ["f11.jpg", "Ese árbol era GIGANTE"],
   ["f12.jpg", "Agua, cerros y nosotros"],
   ["f16.jpg", "💍 ¡Sí!"],
@@ -280,7 +280,7 @@ function setupPolaroids() {
   const cards = FOTOS.map(([src, cap]) => {
     const f = document.createElement("figure");
     f.className = "polaroid";
-    f.innerHTML = `<img src="${photo(src)}" alt="${cap}"><figcaption>${cap}</figcaption>`;
+    f.innerHTML = `<img src="${photo(src)}" alt="${cap}">`;
     f.style.margin = "0";
     table.appendChild(f);
     return f;
@@ -334,17 +334,16 @@ function setupPolaroids() {
       active = false;
       c.classList.remove("dragging");
       c.style.transform = `rotate(${c.dataset.r}deg)`;
-      if (!moved) openLightbox(c.querySelector("img").src, c.querySelector("figcaption").textContent);
+      if (!moved) openLightbox(c.querySelector("img").src);
     };
     c.addEventListener("pointerup", end);
     c.addEventListener("pointercancel", () => { active = false; c.classList.remove("dragging"); });
   });
 }
 
-function openLightbox(src, cap) {
+function openLightbox(src) {
   const lb = $("#lightbox");
   $("img", lb).src = src;
-  $(".lb-cap", lb).textContent = cap;
   lb.hidden = false;
 }
 function setupLightbox() {
