@@ -62,6 +62,7 @@ const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const store = {
   get(k) { try { return localStorage.getItem(k); } catch { return null; } },
   set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+  del(k) { try { localStorage.removeItem(k); } catch {} },
 };
 const clp = n => "$" + Math.round(n).toLocaleString("es-CL");
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -179,7 +180,6 @@ function setupIntro() {
 
   const onUnlocked = pw => {
     unlocked = true;
-    store.set("nj-pw", pw);
     form.hidden = true; hint.hidden = false;
     if (!contentReady) {
       contentReady = true;
@@ -213,11 +213,8 @@ function setupIntro() {
     stop = fallingPetals($(".intro-petals"), 14);
   });
 
-  // ?clave=... en el link, o la clave guardada de una visita anterior
-  const fromUrl = new URLSearchParams(location.search).get("clave");
-  const saved = fromUrl || store.get("nj-pw");
-  if (fromUrl) history.replaceState(null, "", location.pathname + location.hash);
-  if (saved) { input.value = saved; tryPw(saved, true); }
+  // siempre se pide la clave: no se acepta por URL ni se recuerda entre visitas
+  store.del && store.del("nj-pw");
 }
 
 /* ---------- cuenta regresiva ---------- */
